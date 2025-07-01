@@ -23,10 +23,15 @@ jobs:
       - name: Gerar RSS
         run: python linkedin_rss.py
 
-      - name: Commit e Push
+      - name: Commit e Push (com verificação)
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add feed.xml
-          git commit -m "Atualização automática do RSS" || echo "Sem mudanças"
-          git push
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração no feed.xml. Nada para commitar."
+          else
+            git commit -m "Atualização automática do RSS"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          fi
+
