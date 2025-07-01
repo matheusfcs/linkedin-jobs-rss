@@ -1,0 +1,32 @@
+name: Generate RSS
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Gerar RSS
+        run: python linkedin_rss.py
+
+      - name: Commit e Push
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add feed.xml
+          git commit -m "Atualização automática do RSS" || echo "Sem mudanças"
+          git push
