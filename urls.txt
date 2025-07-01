@@ -1,2 +1,2 @@
-https://www.linkedin.com/jobs/search/?keywords=ServiceNow&location=Portugal
-https://www.linkedin.com/jobs/search/?keywords=ServiceNow&location=Brazil
+https://www.linkedin.com/jobs/search/?distance=25&geoId=100364837&keywords=Servicenow&origin=JOBS_HOME_SEARCH_CARDS
+https://www.linkedin.com/jobs/search/?distance=25&geoId=104738515&keywords=Servicenow&origin=JOBS_HOME_SEARCH_CARDS
