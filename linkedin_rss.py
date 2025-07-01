@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, UTC
 import hashlib
+import html
 
 def fetch_jobs_from_url(url):
     print(f"Fetching jobs from: {url}")
@@ -40,7 +41,7 @@ def generate_rss(jobs):
         uid = hashlib.md5(job['link'].encode()).hexdigest()
         rss_items += f"""<item>
             <title>{job['title']} - {job['company']} ({job['location']})</title>
-            <link>{job['link']}</link>
+            <link>{html.escape(job['link'])}</link>
             <guid isPermaLink="false">{uid}</guid>
             <pubDate>{now}</pubDate>
         </item>"""
