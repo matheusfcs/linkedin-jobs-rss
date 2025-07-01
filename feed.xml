@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>LinkedIn Job Feed</title>
+    <link>https://yourusername.github.io/linkedin-rss/feed.xml</link>
+    <description>RSS feed para vagas do LinkedIn</description>
+    <lastBuildDate>Tue, 01 Jul 2025 18:54:24 +0000</lastBuildDate>
+    
+</channel>
+</rss>
